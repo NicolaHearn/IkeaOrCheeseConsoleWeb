@@ -5,6 +5,7 @@ A simple website where people can play the popular lockdown game "Ikea or Cheese
 
 ## Objectives
 1. Create and deploy a website using HTML, CSS and Javascript
+2. Practice using github and branches as a team
 
 ## Scope
 In Scope | Out of Scope (Future Scope)
@@ -17,7 +18,7 @@ Keeps a score | Does not save results for future
 
 
 ## Deliverables
-1. Layout in figma
+1. Layout and design in figma
 2. Pseudocode logic
 3. Create a version of the game in node
 4. Create a front end version of the game with visuals

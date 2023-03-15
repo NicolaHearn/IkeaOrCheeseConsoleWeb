@@ -1,6 +1,6 @@
 class Logic {
-    constructor() {
-
+    constructor(words) {
+        this.words = words.ikea.concat(words.cheese);
     }
 
     playRound() {

@@ -44,17 +44,24 @@ describe(Round, () => {
             expect(round.match('ikea')).toEqual(true);
         });
 
-        it('returns false if the random word does not appear in the ikea array and user inputs "cheese"', () => {
+        it('returns false if the random word appears in the ikea array and user inputs "cheese"', () => {
             const round = new Round();
             round.randomWord = 'tvarhand';
             
             expect(round.match('cheese')).toEqual(false);
         });
-        it('returns true if the random word does appears in the cheese array and user inputs "cheese"', () => {
+        it('returns true if the random word appears in the cheese array and user inputs "cheese"', () => {
             const round = new Round();
             round.randomWord = 'gammalost';
             
             expect(round.match('cheese')).toEqual(true);
+        });
+
+        it('returns false if the random word appears in the cheese array and user inputs "ikea"', () => {
+            const round = new Round();
+            round.randomWord = 'gammalost';
+            
+            expect(round.match('ikea')).toEqual(false);
         });
 
     });

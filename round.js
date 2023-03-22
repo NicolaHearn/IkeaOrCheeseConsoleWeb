@@ -23,7 +23,6 @@ class Round {
             } else {
                 return false;
             }
-            
         } else {
             return 'You must enter either ikea or cheese';
         }

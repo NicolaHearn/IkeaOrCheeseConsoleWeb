@@ -15,7 +15,6 @@ class Round {
 
     match(type) {
         if (type  === 'ikea' || type === 'cheese') { 
-            console.log(type);
             if(type === 'ikea' && this.ikeaWords.includes(this.randomWord)) {
                 return true;
             } else if (type === 'cheese' && this.cheeseWords.includes(this.randomWord)) {
@@ -29,7 +28,7 @@ class Round {
     }
 }
 
-const round = new Round();
-console.log(round.randomWord);
+// const round = new Round();
+// console.log(round.randomWord);
 
 module.exports = Round;

@@ -29,8 +29,8 @@ describe(Game, () => {
     describe('user choice', () => {
         it('prompts the user to choose ikea or cheese', () => {
             const game = new Game();
-
-            game.userChoice();
+            game.playGame();
+            // game.userChoice();
             
             expect(mockInput).toHaveBeenCalledWith('Ikea or Cheese?');
         });

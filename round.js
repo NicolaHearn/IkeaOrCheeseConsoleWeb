@@ -12,6 +12,10 @@ class Round {
         return this.allWords[index];
     }
 
+    match(type) {
+        return type;
+    }
+
 
 }
 

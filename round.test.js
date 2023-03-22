@@ -28,6 +28,12 @@ describe(Round, () => {
             expect(round.allWords.indexOf(result)).toBeLessThanOrEqual(round.allWords.length);
         });
     });
-
+    describe('word match', () => {
+        it('takes an argument that is either "ikea" or "cheese"', () => {
+            const round = new Round();
+            const matchWords = ['ikea', 'cheese'];
+            expect(matchWords).toContain(round.match('ikea'));
+        })
+    });
 });
 

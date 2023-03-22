@@ -2,14 +2,15 @@ const prompt = require('prompt-sync')();
 const Round = require('./round.js');
 
 class Game {
-    constructor() {
-        this.player = '';
+    constructor(userName) {
+        this.player = userName;
         this.score = []
         this.rounds = 1;
         this.currentRound = new Round();
     }
 
     playGame() {
+        console.log(`Hello ${this.player}, is the word a type of cheese or an item on sale at Ikea? Type your answer after the prompts...`);
         while (this.rounds <= 10) {
         console.log(`Round: ${this.rounds}`);
         this.displayWord();

@@ -9,7 +9,7 @@ class Round {
     random() {
         const min = 0;
         const max = this.allWords.length;
-        const index = Math.floor(Math.random() * ((max - min + 1) + min));
+        const index = Math.floor(Math.random() * max);
         return this.allWords[index];
     }
 

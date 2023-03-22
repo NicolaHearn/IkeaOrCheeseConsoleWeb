@@ -31,8 +31,15 @@ describe(Round, () => {
     describe('word match', () => {
         it('takes an argument that is either "ikea" or "cheese"', () => {
             const round = new Round();
-            const matchWords = ['ikea', 'cheese'];
-            expect(matchWords).toContain(round.match('ikea'));
+            
+            expect(round.match('ikea')).toEqual(round.ikeaWords);
+            expect(round.match('monkey')).toEqual('You must enter either ikea or cheese');
+        });
+        it('matches the argument the array', () => {
+            const round = new Round();
+
+            expect(round.match('ikea')).toEqual(round.ikeaWords);
+
         })
     });
 });

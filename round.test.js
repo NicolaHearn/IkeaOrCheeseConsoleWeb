@@ -1,7 +1,7 @@
 const Round = require('./round.js');
 
 describe(Round, () => {
-    describe("the data this class holds", () => {
+    describe('the data this class holds', () => {
         it('contains a list of ikea words', () => {
             const round = new Round();
             expect(round.ikeaWords.includes("skogsfraken")).toEqual(true);
@@ -19,13 +19,13 @@ describe(Round, () => {
         });
     });
 
-    describe("random word", () => {
-        it('returns a random number', () => {
+    describe('random word', () => {
+        it('returns a random word from the all words array', () => {
             const round = new Round();
             result = round.random();
 
-            expect(round.random()).toBeGreaterThanOrEqual(0);
-            expect(round.random()).toBeLessThanOrEqual(round.allWords.length);
+            expect(round.allWords.indexOf(result)).toBeGreaterThanOrEqual(0);
+            expect(round.allWords.indexOf(result)).toBeLessThanOrEqual(round.allWords.length);
         });
     });
 

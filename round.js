@@ -8,11 +8,14 @@ class Round {
     random() {
         const min = 0;
         const max = this.allWords.length;
-        return Math.floor(Math.random() * ((max - min + 1) + min)) ;
+        const index = Math.floor(Math.random() * ((max - min + 1) + min));
+        return this.allWords[index];
     }
+
+
 }
 
-// const round = new Round();
-// console.log(round.random());
+const round = new Round();
+console.log(round.random());
 
 module.exports = Round;

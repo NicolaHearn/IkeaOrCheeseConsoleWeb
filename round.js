@@ -4,6 +4,15 @@ class Round {
         this.cheeseWords = ['gammalost', 'kaffeost', 'vasterbottenost', 'potkase', 'tynjetaler', 'bergkase', 'lighvan', 'lajta', 'hajdu', 'mesesajt', 'balaton', 'alkmaar', 'kashkaval']
         this.allWords = this.ikeaWords.concat(this.cheeseWords);
     }
+
+    random() {
+        const min = 0;
+        const max = this.allWords.length;
+        return Math.floor(Math.random() * ((max - min + 1) + min)) ;
+    }
 }
+
+// const round = new Round();
+// console.log(round.random());
 
 module.exports = Round;

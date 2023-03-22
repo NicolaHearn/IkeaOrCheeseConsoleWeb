@@ -28,19 +28,23 @@ describe(Round, () => {
             expect(round.allWords.indexOf(result)).toBeLessThanOrEqual(round.allWords.length);
         });
     });
+
     describe('word match', () => {
         it('takes an argument that is either "ikea" or "cheese"', () => {
             const round = new Round();
             
-            expect(round.match('ikea')).toEqual(round.ikeaWords);
+            // expect(round.match('ikea')).toEqual(round.ikeaWords);
             expect(round.match('monkey')).toEqual('You must enter either ikea or cheese');
         });
-        it('matches the argument the array', () => {
+
+        it('returns true if the random word appears in the ikea array and the user inputs "ikea"', () => {
             const round = new Round();
+            round.randomWord = 'tvarhand';
 
-            expect(round.match('ikea')).toEqual(round.ikeaWords);
+            expect(round.match('ikea')).toEqual(true);
+           
+        });
 
-        })
     });
 });
 

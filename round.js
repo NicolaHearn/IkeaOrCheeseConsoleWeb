@@ -3,7 +3,7 @@ class Round {
         this.ikeaWords = ['tvarhand', 'skogsfraken', 'rsenskarm', 'koge', 'smaka', 'bygel', 'frotorp', 'tarno', 'kuggo', 'raskog'],
         this.cheeseWords = ['gammalost', 'kaffeost', 'vasterbottenost', 'potkase', 'tynjetaler', 'bergkase', 'lighvan', 'lajta', 'hajdu', 'mesesajt', 'balaton', 'alkmaar', 'kashkaval']
         this.allWords = this.ikeaWords.concat(this.cheeseWords);
-        this.randomWord = this.random;
+        this.randomWord = this.random();
     }
 
     random() {
@@ -14,8 +14,14 @@ class Round {
     }
 
     match(type) {
-        if (type  == 'ikea' || type == 'cheese') { 
-            return type == 'ikea' ? this.ikeaWords : this.cheeseWords;
+        if (type  === 'ikea' || type === 'cheese') { 
+            console.log(type);
+            if(type == 'ikea' && this.ikeaWords.includes(this.randomWord)) {
+                return true
+            } else {
+                return false;
+            }
+            
         } else {
             return 'You must enter either ikea or cheese';
         }

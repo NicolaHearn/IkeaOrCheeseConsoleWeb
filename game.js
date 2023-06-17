@@ -1,10 +1,13 @@
-import Round from "./round.js";
+const Round = require("./round");
+const prompt = require("prompt-sync")();
 
 class Game {
   constructor(userName) {
     this.player = userName;
     this.score = [];
     this.rounds = 1;
+    this.word;
+    this.userGuess;
     this.currentRound = new Round();
   }
 
@@ -15,33 +18,36 @@ class Game {
     while (this.rounds <= 10) {
       console.log(`Round: ${this.rounds}`);
       this.displayWord();
+      this.userChoice();
       this.winOrLose();
-      this.currentRound = new Round();
     }
-
-    console.log(
-      `Game over, you scored ${this.calculateScore()}. Would you like to play again?`
-    );
+    console.log(`Game over, you scored ${this.calculateScore()}`);
   }
 
   displayWord() {
-    console.log(this.currentRound.randomWord);
+    console.log(this.currentRound.random());
   }
 
   userChoice() {
     const userChoice = prompt("Ikea or Cheese?");
-    return userChoice;
+    this.userGuess = userChoice;
+    // return userChoice.toLowerCase();
   }
 
   winOrLose() {
-    if (this.currentRound.match(this.userChoice())) {
-      this.score.push(1);
-      console.log("correct!\n");
+    if (this.userGuess == "ikea" || this.userGuess === "cheese") {
+      // console.log("word is ok");
+      if (this.currentRound.match(this.userGuess) === true) {
+        this.score.push(1);
+        console.log("correct!\n");
+      } else {
+        this.score.push(0);
+        console.log("incorrect :(\n");
+      }
+      this.rounds++;
     } else {
-      this.score.push(0);
-      console.log("incorrect :(\n");
+      console.log("please enter either ikea or cheese");
     }
-    this.rounds += 1;
   }
 
   newRound() {
@@ -55,4 +61,4 @@ class Game {
   }
 }
 
-export { Game };
+module.exports = Game;

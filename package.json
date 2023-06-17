@@ -1,6 +1,5 @@
 {
   "name": "ikeaorcheese",
-  "type": "module",
   "version": "1.0.0",
   "description": "A project using HTML, CSS and Javascript to create a web version of the game Ikea or Cheese",
   "main": "GameLogic.js",

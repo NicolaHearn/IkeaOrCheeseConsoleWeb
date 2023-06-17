@@ -39,19 +39,15 @@ class Round {
   }
 
   match(type) {
-    if (type === "ikea" || type === "cheese") {
-      if (type === "ikea" && this.ikeaWords.includes(this.randomWord)) {
-        return true;
-      } else if (
-        type === "cheese" &&
-        this.cheeseWords.includes(this.randomWord)
-      ) {
-        return true;
-      } else {
-        return false;
-      }
+    if (type === "ikea" && this.ikeaWords.includes(this.randomWord)) {
+      return true;
+    } else if (
+      type === "cheese" &&
+      this.cheeseWords.includes(this.randomWord)
+    ) {
+      return true;
     } else {
-      return "You must enter either ikea or cheese";
+      return false;
     }
   }
 }
@@ -59,4 +55,4 @@ class Round {
 // const round = new Round();
 // console.log(round.randomWord);
 
-export default Round;
+module.exports = Round;

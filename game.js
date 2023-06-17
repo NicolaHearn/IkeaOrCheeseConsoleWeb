@@ -1,4 +1,4 @@
-const Round = require("./round");
+const Words = require("./words");
 const prompt = require("prompt-sync")();
 
 class Game {
@@ -6,14 +6,14 @@ class Game {
     this.player = userName;
     this.score = [];
     this.rounds = 1;
-    this.word;
+    this.currentWord;
     this.userGuess;
-    this.currentRound = new Round();
+    this.words = new Words();
   }
 
   playGame() {
     console.log(
-      `Hello ${this.player}, is the word a type of cheese or an item on sale at Ikea? Type your answer after the prompts...`
+      `Hello ${this.player}, is the word a type of cheese or an item on sale at Ikea? Type your answer (i or c) after the prompts...`
     );
     while (this.rounds <= 10) {
       console.log(`Round: ${this.rounds}`);
@@ -25,19 +25,23 @@ class Game {
   }
 
   displayWord() {
-    console.log(this.currentRound.random());
+    this.currentWord = this.words.random();
+    console.log(this.currentWord);
   }
 
   userChoice() {
-    const userChoice = prompt("Ikea or Cheese?");
-    this.userGuess = userChoice;
-    // return userChoice.toLowerCase();
+    const userChoice = prompt("Ikea or Cheese? ");
+    this.userGuess = userChoice.toLowerCase();
   }
 
   winOrLose() {
-    if (this.userGuess == "ikea" || this.userGuess === "cheese") {
-      // console.log("word is ok");
-      if (this.currentRound.match(this.userGuess) === true) {
+    if (this.userGuess === "i" || this.userGuess === "c") {
+      if (
+        (this.userGuess === "i" &&
+          this.words.ikeaWords.includes(this.currentWord)) ||
+        (this.userGuess === "c" &&
+          this.words.cheeseWords.includes(this.currentWord))
+      ) {
         this.score.push(1);
         console.log("correct!\n");
       } else {
@@ -46,12 +50,8 @@ class Game {
       }
       this.rounds++;
     } else {
-      console.log("please enter either ikea or cheese");
+      console.log("please enter either 'i' or 'c'");
     }
-  }
-
-  newRound() {
-    this.currentRound = new Round();
   }
 
   calculateScore() {

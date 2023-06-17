@@ -18,54 +18,33 @@ describe(Game, () => {
 
       expect(game.score).toEqual([]);
     });
-
-    it("at the beginning of the game, it initiates a new round", () => {
-      const game = new Game();
-
-      expect(game.currentRound.ikeaWords).toContain("tvarhand");
-    });
   });
 
   describe("user choice", () => {
-    it("prompts the user to choose ikea or cheese", () => {
-      const game = new Game();
-      game.playGame();
-      // game.userChoice();
-
-      expect(mockInput).toHaveBeenCalledWith("Ikea or Cheese?");
-    });
-
-    it('should call "ikea"', () => {
-      mockInput.mockReturnValue("ikea");
-
-      const game = new Game();
-
-      expect(game.userChoice()).toEqual("ikea");
-    });
-  });
-
-  describe("displayWord()", () => {
-    it("logs the rnadom qord to the console", () => {
+    it("Says hello and gives instructions on how to play the game", () => {
       const game = new Game();
       const logSpy = jest.spyOn(console, "log");
+      game.player = "Leo";
+      mockInput.mockReturnValue("i");
+      game.playGame();
 
-      game.currentRound.randomWord = "gammalost";
-      game.displayWord();
-      expect(logSpy).toHaveBeenCalledWith("gammalost");
+      expect(logSpy).toHaveBeenCalledWith(
+        "Hello Leo, is the word a type of cheese or an item on sale at Ikea? Type your answer (i or c) after the prompts..."
+      );
     });
   });
 
   describe("winOrLose()", () => {
     it("checks whether the user has won or lost the round", () => {
       const game1 = new Game();
-      game1.currentRound.randomWord = "gammalost";
-      mockInput.mockReturnValue("ikea");
+      game1.currentWord = "gammalost";
+      mockInput.mockReturnValue("i");
       game1.userChoice();
       game1.winOrLose();
 
       const game2 = new Game();
-      game2.currentRound.randomWord = "tvarhand";
-      mockInput.mockReturnValue("ikea");
+      game2.currentWord = "tvarhand";
+      mockInput.mockReturnValue("i");
       game2.userChoice();
       game2.winOrLose();
 
@@ -77,9 +56,8 @@ describe(Game, () => {
   describe("playGame()", () => {
     it("plays ten rounds per game", () => {
       const game = new Game();
-      game.currentRound.randomWord = "tvarhand";
-      mockInput.mockReturnValue("ikea");
-
+      game.player = "Joel";
+      mockInput.mockReturnValue("i");
       game.playGame();
 
       expect(game.rounds).toEqual(11);
@@ -89,10 +67,8 @@ describe(Game, () => {
   describe("calculates the score", () => {
     it("returns the total score", () => {
       const game = new Game();
-
-      game.currentRound.randomWord = "tvarhand";
-      mockInput.mockReturnValue("ikea");
-
+      game.player = "Leo";
+      mockInput.mockReturnValue("i");
       game.playGame();
 
       expect(typeof game.calculateScore()).toEqual("number");

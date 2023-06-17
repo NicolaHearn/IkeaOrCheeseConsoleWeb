@@ -37,19 +37,6 @@ class Words {
     const index = Math.floor(Math.random() * max);
     return this.allWords[index];
   }
-
-  match(type) {
-    if (type === "ikea" && this.ikeaWords.includes(this.randomWord)) {
-      return true;
-    } else if (
-      type === "cheese" &&
-      this.cheeseWords.includes(this.randomWord)
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
 }
 
 // const round = new Round();

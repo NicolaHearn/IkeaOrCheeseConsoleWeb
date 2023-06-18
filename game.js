@@ -1,7 +1,7 @@
-const Words = require("./words");
-const prompt = require("prompt-sync")();
+import { Words } from "./words.js";
+// const prompt = require("prompt-sync")();
 
-class Game {
+export class Game {
   constructor(userName) {
     this.player = userName;
     this.score = [];
@@ -60,5 +60,3 @@ class Game {
     );
   }
 }
-
-module.exports = Game;

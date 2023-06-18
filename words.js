@@ -1,4 +1,4 @@
-class Words {
+export class Words {
   constructor() {
     (this.ikeaWords = [
       "tvarhand",
@@ -41,5 +41,3 @@ class Words {
 
 // const round = new Round();
 // console.log(round.randomWord);
-
-module.exports = Words;

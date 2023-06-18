@@ -16,13 +16,10 @@
     </p>
     <p id="playerWelcome"></p>
     <script type="module"> 
-      import {hideGreeting, greetPlayer} from "./index.js"
+      import {hideGreeting, greetPlayer} from "./index.js";
       document.querySelector("#playerNamePrompt").addEventListener("submit", () => hideGreeting(event));
       document.querySelector("#playerNamePrompt").addEventListener("submit", () => 
         greetPlayer(event, document.getElementById("playerName").value));
-    
-      
-     
     </script>
   </body>
   

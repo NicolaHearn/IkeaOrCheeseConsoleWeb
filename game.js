@@ -39,29 +39,31 @@ export class Game {
   }
 
   userChoice() {
-    document
-      .getElementById("chooseIkea")
-      .addEventListener(
-        "click",
-        () => (
-          (this.userGuess = chooseIkea.value),
-          console.log(this.userGuess),
-          this.winOrLose()
-        )
-      );
+    const chooseIkea = document.getElementById("chooseIkea");
 
-    document
-      .getElementById("chooseCheese")
-      .addEventListener(
-        "click",
-        () => (
-          (this.userGuess = chooseCheese.value), console.log(this.userGuess)
-        )
-      );
+    chooseIkea.addEventListener(
+      "click",
+      () => (
+        (this.userGuess = chooseIkea.value),
+        console.log(this.userGuess),
+        this.winOrLose()
+      )
+    );
 
-    document.getElementById("game").addEventListener("submit", () => {
-      this.winOrLose();
-    });
+    const chooseCheese = document.getElementById("chooseCheese");
+
+    chooseCheese.addEventListener(
+      "click",
+      () => (
+        (this.userGuess = chooseCheese.value),
+        console.log(this.userGuess),
+        this.winOrLose()
+      )
+    );
+
+    // document.getElementById("game").addEventListener("submit", () => {
+    //   this.winOrLose();
+    // });
   }
 
   winOrLose() {

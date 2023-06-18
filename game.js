@@ -12,46 +12,74 @@ export class Game {
   }
 
   playGame() {
-    console.log(
-      `Hello ${this.player}, is the word a type of cheese or an item on sale at Ikea? Type your answer (i or c) after the prompts...`
-    );
-    while (this.rounds <= 10) {
-      console.log(`Round: ${this.rounds}`);
-      this.displayWord();
-      this.userChoice();
-      this.winOrLose();
-    }
+    // while (this.rounds <= 10) {
+    document.getElementById("round").innerText = `Round ${this.rounds}`;
+    document.getElementById("answer").innerText = "";
+    this.displayGame();
+    this.displayWord();
+    this.userChoice();
+    console.log(this.rounds);
+    // }
     console.log(`Game over, you scored ${this.calculateScore()}`);
   }
 
+  greetPlayer() {
+    const playerWelcome = document.getElementById("playerWelcome");
+    playerWelcome.innerHTML = `Hello ${this.player}, is the word a type of cheese or an item on sale at Ikea? Type your answer (i or c) after the prompts...`;
+    playerWelcome.style.display = "inline";
+  }
+
+  displayGame() {
+    document.getElementById("game").style.display = "inline";
+  }
+
   displayWord() {
-    this.currentWord = this.words.random();
-    console.log(this.currentWord);
+    document.getElementById("questionWord").innerText = this.words.random();
+    // console.log(this.currentWord);
   }
 
   userChoice() {
-    const userChoice = prompt("Ikea or Cheese? ");
-    this.userGuess = userChoice.toLowerCase();
+    document
+      .getElementById("chooseIkea")
+      .addEventListener(
+        "click",
+        () => (
+          (this.userGuess = chooseIkea.value),
+          console.log(this.userGuess),
+          this.winOrLose()
+        )
+      );
+
+    document
+      .getElementById("chooseCheese")
+      .addEventListener(
+        "click",
+        () => (
+          (this.userGuess = chooseCheese.value), console.log(this.userGuess)
+        )
+      );
+
+    document.getElementById("game").addEventListener("submit", () => {
+      this.winOrLose();
+    });
   }
 
   winOrLose() {
-    if (this.userGuess === "i" || this.userGuess === "c") {
-      if (
-        (this.userGuess === "i" &&
-          this.words.ikeaWords.includes(this.currentWord)) ||
-        (this.userGuess === "c" &&
-          this.words.cheeseWords.includes(this.currentWord))
-      ) {
-        this.score.push(1);
-        console.log("correct!\n");
-      } else {
-        this.score.push(0);
-        console.log("incorrect :(\n");
-      }
-      this.rounds++;
+    if (
+      (this.userGuess === "IKEA" &&
+        this.words.ikeaWords.includes(this.currentWord)) ||
+      (this.userGuess === "CHEESE" &&
+        this.words.cheeseWords.includes(this.currentWord))
+    ) {
+      this.score.push(1);
+      document.getElementById("answer").innerText = "Correct!";
+      console.log("Correct");
     } else {
-      console.log("please enter either 'i' or 'c'");
+      this.score.push(0);
+      document.getElementById("answer").innerText = "Incorrect!";
+      console.log("Incorrect");
     }
+    this.rounds++;
   }
 
   calculateScore() {

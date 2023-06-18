@@ -7,13 +7,12 @@ export function hideGreeting(e) {
   document.getElementById("playerNamePrompt").style.display = "none";
 }
 
-export function greetPlayer(e, userName) {
+export function startGame(e, userName) {
   e.preventDefault();
   const playerWelcome = document.getElementById("playerWelcome");
   let game = new Game(userName);
+  game.greetPlayer();
   game.playGame();
-  playerWelcome.innerHTML = `Hello ${userName}, is the word a type of cheese or an item on sale at Ikea? Type your answer (i or c) after the prompts...`;
-  playerWelcome.style.display = "inline";
 }
 
 // const playAgain = prompt("Would you like to play again? ");

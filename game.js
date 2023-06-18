@@ -12,26 +12,43 @@ export class Game {
   }
 
   playGame() {
-    console.log(
-      `Hello ${this.player}, is the word a type of cheese or an item on sale at Ikea? Type your answer (i or c) after the prompts...`
-    );
-    while (this.rounds <= 10) {
-      console.log(`Round: ${this.rounds}`);
-      this.displayWord();
-      this.userChoice();
-      this.winOrLose();
-    }
+    // while (this.rounds <= 10) {
+    this.displayWord();
+    this.userChoice();
+    this.winOrLose();
+    // }
     console.log(`Game over, you scored ${this.calculateScore()}`);
   }
 
+  greetPlayer() {
+    const playerWelcome = document.getElementById("playerWelcome");
+    playerWelcome.innerHTML = `Hello ${this.player}, is the word a type of cheese or an item on sale at Ikea? Type your answer (i or c) after the prompts...`;
+    playerWelcome.style.display = "inline";
+  }
+
   displayWord() {
-    this.currentWord = this.words.random();
-    console.log(this.currentWord);
+    const para = document.createElement("p");
+    para.innerText = this.words.random();
+    document.body.appendChild(para);
+    // console.log(this.currentWord);
   }
 
   userChoice() {
-    const userChoice = prompt("Ikea or Cheese? ");
-    this.userGuess = userChoice.toLowerCase();
+    const chooseIkea = document.createElement("button");
+    chooseIkea.textContent = "IKEA";
+    chooseIkea.setAttribute("value", "i");
+    document.body.appendChild(chooseIkea);
+    chooseIkea.addEventListener("click", () => console.log(chooseIkea.value));
+
+    const chooseCheese = document.createElement("button");
+    chooseCheese.textContent = "CHEESE";
+    chooseCheese.setAttribute("value", "c");
+    document.body.appendChild(chooseCheese);
+    chooseCheese.addEventListener("click", () =>
+      console.log(chooseCheese.value)
+    );
+
+    this.userGuess = inputChoice.value.toLowerCase();
   }
 
   winOrLose() {

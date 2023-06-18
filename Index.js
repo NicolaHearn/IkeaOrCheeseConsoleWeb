@@ -1,21 +1,13 @@
 // const Game = require("./game");
 // const prompt = require("prompt-sync")();
 
-export function turnGreen() {
-  document.querySelector("h1").style.color = "green";
-}
-
-export function hideGreeting() {
+export function hideGreeting(e) {
+  e.preventDefault();
   document.getElementById("playerNamePrompt").style.display = "none";
 }
 
-export function showGreeting() {
-  document.getElementById("playerNamePrompt").style.display = "inline";
-}
-
-export function greetPlayer(e) {
+export function greetPlayer(e, userName) {
   e.preventDefault();
-  const userName = document.getElementById("playerName").value;
   const playerWelcome = document.getElementById("playerWelcome");
 
   playerWelcome.innerHTML = `Hello ${userName}, is the word a type of cheese or an item on sale at Ikea? Type your answer (i or c) after the prompts...`;

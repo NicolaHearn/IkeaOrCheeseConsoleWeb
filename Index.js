@@ -1,12 +1,19 @@
-const Game = require("./game");
-const prompt = require("prompt-sync")();
+// const Game = require("./game");
+// const prompt = require("prompt-sync")();
 
-function hideGreeting(e) {
-  e.preventDefault();
+export function turnGreen() {
+  document.querySelector("h1").style.color = "green";
+}
+
+export function hideGreeting() {
   document.getElementById("playerNamePrompt").style.display = "none";
 }
 
-function greetPlayer(e) {
+export function showGreeting() {
+  document.getElementById("playerNamePrompt").style.display = "inline";
+}
+
+export function greetPlayer(e) {
   e.preventDefault();
   const userName = document.getElementById("playerName").value;
   const playerWelcome = document.getElementById("playerWelcome");
@@ -17,12 +24,12 @@ function greetPlayer(e) {
 
 console.log("Let's play Ikea or Cheese");
 
-let game = new Game(userName);
-game.playGame();
-const playAgain = prompt("Would you like to play again? ");
-if (playAgain === "y") {
-  game = new Game(userName);
-  game.playGame();
-} else {
-  console.log("OK, thanks for playing, see you next time!");
-}
+// let game = new Game(userName);
+// game.playGame();
+// const playAgain = prompt("Would you like to play again? ");
+// if (playAgain === "y") {
+//   game = new Game(userName);
+//   game.playGame();
+// } else {
+//   console.log("OK, thanks for playing, see you next time!");
+// }

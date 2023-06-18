@@ -1,6 +1,10 @@
 const Game = require("./game");
 const prompt = require("prompt-sync")();
 
+function showGreeting() {
+  document.getElementById("playerNamePrompt").style.display = "inline";
+}
+
 console.log("Let's play Ikea or Cheese");
 let userName = prompt("Please enter your name to start the game: ");
 

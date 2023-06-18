@@ -1,9 +1,20 @@
 <html>
   <head>
     <link rel="stylesheet" href="style.css" />
-    <script src="./index.js" type="module"></script>
+   
   </head>
-  <body>
-    <h1>IKEA OR CHEESE</h1>
+  <body onclick="showGreeting()">
+    <h1 id="header">IKEA OR CHEESE</h1>
+
+    <p>Let's play Ikea or Cheese</body>
+    <p>
+      <form onsubmit="showGreeting();" id="playerNamePrompt" >
+        <label for="playerName">Please enter your name to begin</label>
+        <input id="playerName" name="playerName" />
+        <input id="playerNameSubmit" type="submit" value="submit">
+    </form>
+    </p>
+    <script type="text/javascript" src="./index.js" ></script>
   </body>
+  
 </html>

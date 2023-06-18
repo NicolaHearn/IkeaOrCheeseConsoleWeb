@@ -3,5 +3,9 @@ h1 {
 }
 
 #playerNamePrompt {
+  display: inline;
+}
+
+#playerWelcome {
   display: none;
 }

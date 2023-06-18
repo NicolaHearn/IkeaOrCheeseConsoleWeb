@@ -3,17 +3,18 @@
     <link rel="stylesheet" href="style.css" />
    
   </head>
-  <body onclick="showGreeting()">
+  <body>
     <h1 id="header">IKEA OR CHEESE</h1>
 
     <p>Let's play Ikea or Cheese</body>
     <p>
-      <form onsubmit="showGreeting();" id="playerNamePrompt" >
+      <form action="#" onsubmit="return (hideGreeting(event) & greetPlayer(event));" id="playerNamePrompt" value="submit">
         <label for="playerName">Please enter your name to begin</label>
         <input id="playerName" name="playerName" />
         <input id="playerNameSubmit" type="submit" value="submit">
     </form>
     </p>
+    <p id="playerWelcome"></p>
     <script type="text/javascript" src="./index.js" ></script>
   </body>
   

@@ -13,10 +13,12 @@ export class Game {
 
   playGame() {
     // while (this.rounds <= 10) {
+    document.getElementById("round").innerText = `Round ${this.rounds}`;
+    document.getElementById("answer").innerText = "";
     this.displayGame();
     this.displayWord();
     this.userChoice();
-    this.winOrLose();
+    console.log(this.rounds);
     // }
     console.log(`Game over, you scored ${this.calculateScore()}`);
   }
@@ -41,7 +43,11 @@ export class Game {
       .getElementById("chooseIkea")
       .addEventListener(
         "click",
-        () => ((this.userGuess = chooseIkea.value), console.log(this.userGuess))
+        () => (
+          (this.userGuess = chooseIkea.value),
+          console.log(this.userGuess),
+          this.winOrLose()
+        )
       );
 
     document
@@ -52,32 +58,28 @@ export class Game {
           (this.userGuess = chooseCheese.value), console.log(this.userGuess)
         )
       );
+
+    document.getElementById("game").addEventListener("submit", () => {
+      this.winOrLose();
+    });
   }
 
   winOrLose() {
-    if (this.userGuess === "i" || this.userGuess === "c") {
-      if (
-        (this.userGuess === "i" &&
-          this.words.ikeaWords.includes(this.currentWord)) ||
-        (this.userGuess === "c" &&
-          this.words.cheeseWords.includes(this.currentWord))
-      ) {
-        this.score.push(1);
-        const para = document.createElement("p");
-        para.innerText = "Correct!";
-        document.body.appendChild(para);
-      } else {
-        this.score.push(0);
-        const para = document.createElement("p");
-        para.innerText = "Incorrect!";
-        document.body.appendChild(para);
-      }
-      this.rounds++;
+    if (
+      (this.userGuess === "IKEA" &&
+        this.words.ikeaWords.includes(this.currentWord)) ||
+      (this.userGuess === "CHEESE" &&
+        this.words.cheeseWords.includes(this.currentWord))
+    ) {
+      this.score.push(1);
+      document.getElementById("answer").innerText = "Correct!";
+      console.log("Correct");
     } else {
-      const para = document.createElement("p");
-      para.innerText = "Please enter either 'i' or 'c'";
-      document.body.appendChild(para);
+      this.score.push(0);
+      document.getElementById("answer").innerText = "Incorrect!";
+      console.log("Incorrect");
     }
+    this.rounds++;
   }
 
   calculateScore() {

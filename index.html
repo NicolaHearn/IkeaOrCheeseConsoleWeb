@@ -15,6 +15,15 @@
     </form>
     </p>
     <p id="playerWelcome"></p>
+    
+    <form action="#" id="game" value="submit">
+      <p>Ikea or Cheese?</p>
+      <p id="questionWord"></p>
+      <input id="chooseIkea" type="submit" value="IKEA"> 
+      <input id="chooseCheese" type="submit" value="CHEESE">
+    </form>
+
+
     <script type="module"> 
       import {hideGreeting, startGame} from "./index.js";
       document.querySelector("#playerNamePrompt").addEventListener("submit", () => hideGreeting(event));

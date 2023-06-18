@@ -9,3 +9,7 @@ h1 {
 #playerWelcome {
   display: none;
 }
+
+#game {
+  display: none;
+}

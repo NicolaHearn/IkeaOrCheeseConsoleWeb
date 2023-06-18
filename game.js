@@ -13,6 +13,7 @@ export class Game {
 
   playGame() {
     // while (this.rounds <= 10) {
+    this.displayGame();
     this.displayWord();
     this.userChoice();
     this.winOrLose();
@@ -26,29 +27,31 @@ export class Game {
     playerWelcome.style.display = "inline";
   }
 
+  displayGame() {
+    document.getElementById("game").style.display = "inline";
+  }
+
   displayWord() {
-    const para = document.createElement("p");
-    para.innerText = this.words.random();
-    document.body.appendChild(para);
+    document.getElementById("questionWord").innerText = this.words.random();
     // console.log(this.currentWord);
   }
 
   userChoice() {
-    const chooseIkea = document.createElement("button");
-    chooseIkea.textContent = "IKEA";
-    chooseIkea.setAttribute("value", "i");
-    document.body.appendChild(chooseIkea);
-    chooseIkea.addEventListener("click", () => console.log(chooseIkea.value));
+    document
+      .getElementById("chooseIkea")
+      .addEventListener(
+        "click",
+        () => ((this.userGuess = chooseIkea.value), console.log(this.userGuess))
+      );
 
-    const chooseCheese = document.createElement("button");
-    chooseCheese.textContent = "CHEESE";
-    chooseCheese.setAttribute("value", "c");
-    document.body.appendChild(chooseCheese);
-    chooseCheese.addEventListener("click", () =>
-      console.log(chooseCheese.value)
-    );
-
-    this.userGuess = inputChoice.value.toLowerCase();
+    document
+      .getElementById("chooseCheese")
+      .addEventListener(
+        "click",
+        () => (
+          (this.userGuess = chooseCheese.value), console.log(this.userGuess)
+        )
+      );
   }
 
   winOrLose() {
@@ -60,14 +63,20 @@ export class Game {
           this.words.cheeseWords.includes(this.currentWord))
       ) {
         this.score.push(1);
-        console.log("correct!\n");
+        const para = document.createElement("p");
+        para.innerText = "Correct!";
+        document.body.appendChild(para);
       } else {
         this.score.push(0);
-        console.log("incorrect :(\n");
+        const para = document.createElement("p");
+        para.innerText = "Incorrect!";
+        document.body.appendChild(para);
       }
       this.rounds++;
     } else {
-      console.log("please enter either 'i' or 'c'");
+      const para = document.createElement("p");
+      para.innerText = "Please enter either 'i' or 'c'";
+      document.body.appendChild(para);
     }
   }
 

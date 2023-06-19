@@ -12,16 +12,11 @@ export class Game {
   }
 
   playGame() {
-    if (this.rounds < 10) {
-      this.displayGame();
-      this.setRounds();
-      this.setCurrentWord();
-      this.displayWord();
-      this.userChoice();
-    } else {
-      this.hideGame();
-      this.gameOver();
-    }
+    this.displayGame();
+    this.setRounds();
+    this.setCurrentWord();
+    this.displayWord();
+    this.userChoice();
   }
 
   greetPlayer() {
@@ -38,8 +33,14 @@ export class Game {
     document.getElementById("game").style.display = "none";
   }
 
-  gameOver() {
-    document.getElementById("gameOver").style.display = "inline";
+  isGameOver() {
+    if (this.rounds === 11) {
+      this.hideGame();
+      const gameOver = document.getElementById("gameOver");
+
+      gameOver.style.display = "inline";
+      gameOver.innerText = `Game over! You scored ${this.calculateScore()}`;
+    }
   }
 
   setRounds() {
@@ -64,6 +65,7 @@ export class Game {
         (this.userGuess = chooseIkea.value),
         console.log(this.userGuess),
         this.winOrLose(this.userGuess),
+        this.isGameOver(),
         this.setRounds(),
         this.setCurrentWord(),
         this.displayWord()
@@ -78,6 +80,7 @@ export class Game {
         (this.userGuess = chooseCheese.value),
         console.log(this.userGuess),
         this.winOrLose(this.userGuess),
+        this.isGameOver(),
         this.setRounds(),
         this.setCurrentWord(),
         this.displayWord()

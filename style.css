@@ -13,3 +13,7 @@ h1 {
 #game {
   display: none;
 }
+
+#gameOver {
+  display: none;
+}

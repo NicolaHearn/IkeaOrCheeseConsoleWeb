@@ -12,15 +12,16 @@ export class Game {
   }
 
   playGame() {
-    // while (this.rounds <= 10) {
-    document.getElementById("round").innerText = `Round ${this.rounds}`;
-    document.getElementById("answer").innerText = "";
-    this.displayGame();
-    this.displayWord();
-    this.userChoice();
-    console.log(this.rounds);
-    // }
-    console.log(`Game over, you scored ${this.calculateScore()}`);
+    if (this.rounds < 10) {
+      this.displayGame();
+      this.setRounds();
+      this.setCurrentWord();
+      this.displayWord();
+      this.userChoice();
+    } else {
+      this.hideGame();
+      this.gameOver();
+    }
   }
 
   greetPlayer() {
@@ -33,8 +34,24 @@ export class Game {
     document.getElementById("game").style.display = "inline";
   }
 
+  hideGame() {
+    document.getElementById("game").style.display = "none";
+  }
+
+  gameOver() {
+    document.getElementById("gameOver").style.display = "inline";
+  }
+
+  setRounds() {
+    document.getElementById("round").innerText = `Round ${this.rounds}`;
+  }
+
+  setCurrentWord() {
+    this.currentWord = this.words.random();
+  }
+
   displayWord() {
-    document.getElementById("questionWord").innerText = this.words.random();
+    document.getElementById("questionWord").innerText = this.currentWord;
     // console.log(this.currentWord);
   }
 
@@ -46,7 +63,10 @@ export class Game {
       () => (
         (this.userGuess = chooseIkea.value),
         console.log(this.userGuess),
-        this.winOrLose()
+        this.winOrLose(this.userGuess),
+        this.setRounds(),
+        this.setCurrentWord(),
+        this.displayWord()
       )
     );
 
@@ -57,20 +77,21 @@ export class Game {
       () => (
         (this.userGuess = chooseCheese.value),
         console.log(this.userGuess),
-        this.winOrLose()
+        this.winOrLose(this.userGuess),
+        this.setRounds(),
+        this.setCurrentWord(),
+        this.displayWord()
       )
     );
 
-    // document.getElementById("game").addEventListener("submit", () => {
-    //   this.winOrLose();
-    // });
+    return this.userGuess;
   }
 
-  winOrLose() {
+  winOrLose(userGuess) {
     if (
-      (this.userGuess === "IKEA" &&
+      (userGuess === "IKEA" &&
         this.words.ikeaWords.includes(this.currentWord)) ||
-      (this.userGuess === "CHEESE" &&
+      (userGuess === "CHEESE" &&
         this.words.cheeseWords.includes(this.currentWord))
     ) {
       this.score.push(1);
@@ -82,6 +103,7 @@ export class Game {
       console.log("Incorrect");
     }
     this.rounds++;
+    console.log(this.rounds);
   }
 
   calculateScore() {

@@ -4,30 +4,35 @@
    
   </head>
   <body>
-    <h1 id="header">IKEA OR CHEESE</h1>
-
-    <p>Let's play Ikea or Cheese</body>
-    <p>
+    
+<div class="main-container">
+  <h1>Let's play Ikea or Cheese<h1>
+  <div class="game-board">
+    <div>
       <form id="playerNamePrompt" value="submit">
         <label for="playerName">Please enter your name to begin</label>
         <input id="playerName" name="playerName" />
         <input id="playerNameSubmit" type="submit" value="submit">
-    </form>
-    </p>
-    <p id="playerWelcome"></p>
+      </form>
+    </div>
+    <div>
+      
+    </div>
+   
     
     <form action="#" id="game" value="click">
+      <p id="playerWelcome"></p> 
       <p id="round"></p>
       <p>Ikea or Cheese?</p>
       <p id="questionWord"></p>
       <input id="chooseIkea" type="button" value="IKEA"> 
       <input id="chooseCheese" type="button" value="CHEESE">
       <p id="answer"></p>
-  </form>
+    </form>
     
     <p id="gameOver"></p>
-
-
+  </div>
+</div>
     <script type="module"> 
       import {hideGreeting, startGame} from "./index.js";
       document.querySelector("#playerNamePrompt").addEventListener("submit", () => hideGreeting(event));

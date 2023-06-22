@@ -1,9 +1,40 @@
-h1 {
-  color: red;
+body {
+  background: repeating-linear-gradient(
+    -45deg,
+    #606dbc,
+    #606dbc 20px,
+    #ff99cc 20px,
+    #ff99cc 40px
+  );
 }
 
-#playerNamePrompt {
-  display: inline;
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 75%;
+}
+
+.game-board {
+  background-color: #ffcc99;
+  min-height: 400px;
+  min-width: 600px;
+  border-radius: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+form input,
+label,
+p {
+  height: 40px;
+  margin: 10px 60px;
 }
 
 #playerWelcome {

@@ -21,7 +21,7 @@ export class Game {
 
   greetPlayer() {
     const playerWelcome = document.getElementById("playerWelcome");
-    playerWelcome.innerHTML = `Hello ${this.player}, is the word a type of cheese or an item on sale at Ikea? Type your answer (i or c) after the prompts...`;
+    playerWelcome.innerHTML = `Hello ${this.player}, is the word a type of cheese or an item on sale at Ikea?`;
     playerWelcome.style.display = "inline";
   }
 

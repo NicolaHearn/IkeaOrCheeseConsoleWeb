@@ -1,8 +1,6 @@
 class UserGuess {
   constructor(userInput) {
     this.userInput = userInput;
-    // this.score = [];
-    // this.rounds = 1;
   }
 
   checkUserInput() {

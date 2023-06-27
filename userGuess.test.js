@@ -1,19 +1,6 @@
 const UserGuess = require('./userGuess');
 
 describe(UserGuess, () => {
-  // describe("game data", () => {
-  //   it("at the beginning of the game, the number of rounds is set to zero", () => {
-  //     const game = new Game();
-
-  //     expect(game.rounds).toEqual(1);
-  //   });
-  //   it("at the beginning of the game, the score is set to an empty array", () => {
-  //     const game = new Game();
-
-  //     expect(game.score).toEqual([]);
-  //   });
-  // });
-
   describe("user input", () => {
     it("accepts a string as an argument", () => {
       const userGuess = new UserGuess("myUserInput");

@@ -25,6 +25,7 @@ class Round {
           }
       }
 
+    //should I make this a getter and also have a setter that I call inside winOrLose?
     roundScore() {
         return this.score;
       }

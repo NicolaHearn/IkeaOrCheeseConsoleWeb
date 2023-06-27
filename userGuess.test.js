@@ -39,18 +39,7 @@ describe(UserGuess, () => {
 
   
 
-  // describe("user choice", () => {
-  //   it("Says hello and gives instructions on how to play the game", () => {
-  //     const game = new Game();
-  //     const logSpy = jest.spyOn(console, "log");
-  //     game.player = "Leo";
-  //     mockInput.mockReturnValue("i");
-  //     game.playGame();
-  //     expect(logSpy).toHaveBeenCalledWith(
-  //       "Hello Leo, is the word a type of cheese or an item on sale at Ikea? Type your answer (i or c) after the prompts..."
-  //     );
-  //   }); 
-  // }); 
+  
 
   // describe("winOrLose()", () => {
   //   it("checks whether the user has won or lost the round", () => {

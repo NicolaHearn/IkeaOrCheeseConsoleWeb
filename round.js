@@ -3,7 +3,6 @@ const Words = require("./words");
 class Round {
     constructor() {
         this.words = new Words();
-        this.score = 0;
     }
 
     displayWord() {
@@ -22,8 +21,7 @@ class Round {
             (currentGuess === "cheese" &&
               this.words.cheeseWords.includes(questionWord))
           ) {
-                this.score = 1;
-                return true
+            return true
           } else {
             return false
           }

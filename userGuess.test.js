@@ -24,25 +24,5 @@ describe(UserGuess, () => {
     })
   });
 
-  // describe("playGame()", () => {
-  //   it("plays ten rounds per game", () => {
-  //     const game = new Game();
-  //     game.player = "Joel";
-  //     mockInput.mockReturnValue("i");
-  //     game.playGame();
-
-  //     expect(game.rounds).toEqual(11);
-  //   });
-  // });
-
-  // describe("calculates the score", () => {
-  //   it("returns the total score", () => {
-  //     const game = new Game();
-  //     game.player = "Leo";
-  //     mockInput.mockReturnValue("i");
-  //     game.playGame();
-
-  //     expect(typeof game.calculateScore()).toEqual("number");
-  //   });
-  // });
+  
 });

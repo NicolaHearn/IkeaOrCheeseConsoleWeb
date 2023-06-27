@@ -37,29 +37,6 @@ describe(UserGuess, () => {
     })
   });
 
-  
-
-  
-
-  // describe("winOrLose()", () => {
-  //   it("checks whether the user has won or lost the round", () => {
-  //     const game1 = new Game();
-  //     game1.currentWord = "gammalost";
-  //     mockInput.mockReturnValue("i");
-  //     game1.userChoice();
-  //     game1.winOrLose();
-
-  //     const game2 = new Game();
-  //     game2.currentWord = "tvarhand";
-  //     mockInput.mockReturnValue("i");
-  //     game2.userChoice();
-  //     game2.winOrLose();
-
-  //     expect(game1.score).toEqual([0]);
-  //     expect(game2.score).toEqual([1]);
-  //   });
-  // });
-
   // describe("playGame()", () => {
   //   it("plays ten rounds per game", () => {
   //     const game = new Game();

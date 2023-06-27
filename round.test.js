@@ -11,13 +11,18 @@ describe(Round, () => {
         expect(typeof result).toEqual("string");
     });
 
-    it("returns true if the user guess matches the category of the word they have been given", () => {
+    it("returns true if the user guess matches the category (ikea or cheese) of the word they have been given", () => {
         const round = new Round();
         const words = new Words();
-        const wordToGuess = round.displayWord();
         const userGuess = new UserGuess("ikea")
         const result = round.winOrLose("tvarhand", userGuess.userInput);
 
-        expect(result).toEqual(true);
+        const nextRound = new Round();
+        const newWords = new Words();
+        const newUserGuess = new UserGuess("cheese")
+        const newResult = round.winOrLose("kaffeost", newUserGuess.userInput);
+
+        expect(result).toEqual(true)
+        expect(newResult).toEqual(true);
     })
 })

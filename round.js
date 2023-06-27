@@ -11,6 +11,10 @@ class Round {
         return word.random();
     }
 
+    promptUser() {
+        return "Is it ikea or cheese?";
+    }
+
     winOrLose(questionWord, currentGuess) {
           if (
             (currentGuess === "ikea" &&

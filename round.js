@@ -1,15 +1,19 @@
 const Words = require("./words");
 const prompt = require("prompt-sync")();
 
-class Game {
-  constructor(userName) {
-    this.player = userName;
+class Round {
+  constructor(userInput) {
+    this.userInput = userInput;
     this.score = [];
     this.rounds = 1;
     this.currentWord;
     this.userGuess;
     this.words = new Words();
   }
+
+  checkUserInput() {
+    return this.userInput === 'ikea' || this.userInput === 'cheese' ? true : "Answer must be 'ikea' or 'cheese', please try again";
+   }
 
   playGame() {
     console.log(
@@ -61,4 +65,4 @@ class Game {
   }
 }
 
-module.exports = Game;
+module.exports = Round;

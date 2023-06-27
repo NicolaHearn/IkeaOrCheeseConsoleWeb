@@ -24,3 +24,7 @@ This is a game where a word is displayed on the screen and the user has to choos
 * If the user chose correctly, increase the score and display "Yes, you guessed correctly!" else display "Not this time!"
 * Repeat the process until the number of guesses variable reaches 10. After 10 guesses, display "Game over" and the user's score.
 
+# How to run the programme
+## Console Game
+* Download the console-game branch
+

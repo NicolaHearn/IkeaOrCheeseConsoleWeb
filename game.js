@@ -10,19 +10,20 @@ class Game {
     playRound() {
         const round = new Round();
         // const word = round.displayWord();
-        const word = "koge"
+        const word = "koge";
     
         round.promptUser();
         const userGuess = new UserGuess("ikea");
-          
+        const result = round.winOrLose(word, userGuess.userInput);  
         //issue here because test works without the second argument! 
-        return round.winOrLose(word, userGuess) ? "correct!" : "incorrect!";
+        return result ? "correct!" : "incorrect!";
     }
 
 
     playGame() {
-        console.log(this.playRound());
-        this.playRound() === "correct!" ? this.score += 1 : false;
+        const result = this.playRound();
+        console.log(result);
+        result === "correct!" ? this.score += 1 : false;
     }
 }
 

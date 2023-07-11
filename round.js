@@ -1,13 +1,15 @@
 const Words = require("./words");
+const Random = require('./random');
 
 class Round {
     constructor() {
         this.words = new Words();
     }
 
-    displayWord() {
-        const word = new Words();
-        return word.random();
+    randomWord() {
+        // const word = new Words();
+        const random = new Random()
+        return random.random();
     }
 
     promptUser() {

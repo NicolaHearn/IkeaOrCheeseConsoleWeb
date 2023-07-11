@@ -4,9 +4,9 @@ const Words = require("./words");
 //integration test
 
 describe(Round, () => {
-    it("generates a random word by calling random() from the words class", () => {
+    it("generates a random word by calling random()", () => {
         const round = new Round();
-        const result = round.displayWord();
+        const result = round.randomWord();
 
         expect(typeof result).toEqual("string");
     });

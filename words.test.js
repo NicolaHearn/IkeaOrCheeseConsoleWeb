@@ -18,16 +18,4 @@ describe(Words, () => {
       expect(words.allWords.length).toEqual(totalWords);
     });
   });
-
-  describe("random word", () => {
-    it("returns a random word from the all words array", () => {
-      const words = new Words();
-      result = words.random();
-
-      expect(words.allWords.indexOf(result)).toBeGreaterThanOrEqual(0);
-      expect(words.allWords.indexOf(result)).toBeLessThanOrEqual(
-        words.allWords.length
-      );
-    });
-  });
 });

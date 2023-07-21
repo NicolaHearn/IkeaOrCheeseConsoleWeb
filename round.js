@@ -19,9 +19,9 @@ class Round {
       return (currentGuess === "ikea" && this.words.ikeaWords.includes(questionWord)) || (currentGuess === "cheese" && this.words.cheeseWords.includes(questionWord)) ? true : false;
       }
 
-    //should I make this a getter and also have a setter that I call inside winOrLose?
-    roundScore() {
-        return this.score;
+      //currently not used
+    roundResult(winOrLoseResult) {
+        return winOrLoseResult === true ? "correct!" : "incorrect";
       }
 }
 

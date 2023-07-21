@@ -9,8 +9,7 @@ class Game {
 
     playRound(testArg) {
         let result = false;
-        console.log("rounds: " + this.rounds)
-
+       
         if (typeof testArg === 'undefined') {
             const round = new Round();    
             round.promptUser();

@@ -1,7 +1,6 @@
 const Round = require("./round");
 const UserGuess = require("./userGuess");
 const Words = require("./words");
-//integration test
 
 describe(Round, () => {
     it("generates a random word by calling random()", () => {
@@ -40,38 +39,4 @@ describe(Round, () => {
         expect(result).toEqual(false)
         expect(newResult).toEqual(false);
     });
-
-    // it("returns a score of 1 if the user matches the word to the wrong category", () => {
-    //     const round = new Round();
-    //     const words = new Words();
-    //     const userGuess = new UserGuess("ikea")
-    //     const winOrLose = round.winOrLose("tvarhand", userGuess.userInput);
-    //     const result = round.roundScore();
-        
-    //     const nextRound = new Round();
-    //     const newWords = new Words();
-    //     const newUserGuess = new UserGuess("cheese")
-    //     const newwinOrLose = round.winOrLose("kaffeost", newUserGuess.userInput);
-    //     const nextResult = round.roundScore();
-
-    //     expect(result).toEqual(1);
-    //     expect(nextResult).toEqual(1);
-    // });
-
-//     it("returns a score of 0 if the user matches the word to the wrong category", () => {
-//         const round = new Round();
-//         const words = new Words();
-//         const userGuess = new UserGuess("cheese")
-//         const winOrLose = round.winOrLose("tvarhand", userGuess.userInput);
-//         const result = round.roundScore();
-        
-//         const nextRound = new Round();
-//         const newWords = new Words();
-//         const newUserGuess = new UserGuess("ikea")
-//         const newwinOrLose = round.winOrLose("kaffeost", newUserGuess.userInput);
-//         const nextResult = round.roundScore();
-
-//         expect(result).toEqual(0);
-//         expect(nextResult).toEqual(0);
-//     })
 }) 

@@ -7,7 +7,6 @@ class Round {
     }
 
     randomWord() {
-        // const word = new Words();
         const random = new Random()
         return random.random();
     }

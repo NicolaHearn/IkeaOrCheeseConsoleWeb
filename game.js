@@ -7,23 +7,31 @@ class Game {
         this.score = 0;
     }
 
-    playRound() {
-        const round = new Round();
-        // const word = round.displayWord();
-        const word = "koge";
-    
-        round.promptUser();
-        const userGuess = new UserGuess("ikea");
-        const result = round.winOrLose(word, userGuess.userInput);  
-        //issue here because test works without the second argument! 
-        return result ? "correct!" : "incorrect!";
+    playRound(testArg) {
+        let result = false;
+        console.log("rounds: " + this.rounds)
+
+        if (typeof testArg === 'undefined') {
+            const round = new Round();    
+            round.promptUser();
+            const word = round.randomWord();
+            const userGuess = new UserGuess("cheese");
+            result = round.winOrLose(word, userGuess.userInput); 
+        }
+        else {
+            result = testArg;
+        }
+
+        this.rounds ++
+        result ? this.score ++ : false;
+        return result
     }
-
-
+        
     playGame() {
-        const result = this.playRound();
-        console.log(result);
-        result === "correct!" ? this.score += 1 : false;
+        while (this.rounds <= 10) {
+        this.playRound();
+        }
+        return "game over, you scored: " + this.score;
     }
 }
 

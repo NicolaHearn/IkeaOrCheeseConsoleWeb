@@ -16,16 +16,7 @@ class Round {
     }
 
     winOrLose(questionWord, currentGuess) {
-          if (
-            (currentGuess === "ikea" &&
-              this.words.ikeaWords.includes(questionWord)) ||
-            (currentGuess === "cheese" &&
-              this.words.cheeseWords.includes(questionWord))
-          ) {
-            return true
-          } else {
-            return false
-          }
+      return (currentGuess === "ikea" && this.words.ikeaWords.includes(questionWord)) || (currentGuess === "cheese" && this.words.cheeseWords.includes(questionWord)) ? true : false;
       }
 
     //should I make this a getter and also have a setter that I call inside winOrLose?

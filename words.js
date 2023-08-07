@@ -1,6 +1,6 @@
 class Words {
   constructor() {
-    (this.ikeaWords = [
+    this.ikeaWords = [
       "tvarhand",
       "skogsfraken",
       "rsenskarm",
@@ -10,9 +10,9 @@ class Words {
       "frotorp",
       "tarno",
       "kuggo",
-      "raskog",
-    ]),
-      (this.cheeseWords = [
+      "raskog"
+    ];
+    this.cheeseWords = [
         "gammalost",
         "kaffeost",
         "vasterbottenost",
@@ -25,21 +25,16 @@ class Words {
         "mesesajt",
         "balaton",
         "alkmaar",
-        "kashkaval",
-      ]);
+        "kashkaval"
+      ];
     this.allWords = this.ikeaWords.concat(this.cheeseWords);
-    this.randomWord = this.random();
+  
   }
 
-  random() {
-    const min = 0;
-    const max = this.allWords.length;
-    const index = Math.floor(Math.random() * max);
-    return this.allWords[index];
-  }
+  // random() {
+  //   const randomWord = new Random()
+  //   return randomWord.random();
+  // }
 }
-
-// const round = new Round();
-// console.log(round.randomWord);
 
 module.exports = Words;

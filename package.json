@@ -16,7 +16,6 @@
     "is-interactive": "^1.0.0",
     "is-unicode-supported": "^0.1.0",
     "isstream": "^0.1.2",
-    "jest": "^29.5.0",
     "lodash": "^4.17.21",
     "log-symbols": "^4.1.0",
     "mimic-fn": "^2.1.0",
@@ -61,5 +60,8 @@
   "bugs": {
     "url": "https://github.com/NicolaHearn/IkeaOrCheese/issues"
   },
-  "homepage": "https://github.com/NicolaHearn/IkeaOrCheese#readme"
+  "homepage": "https://github.com/NicolaHearn/IkeaOrCheese#readme",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
 }

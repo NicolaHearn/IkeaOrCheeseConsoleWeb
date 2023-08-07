@@ -1,5 +1,5 @@
-const Round = require("./round");
-const UserGuess = require("./userGuess");
+const Round = require("../round");
+const UserGuess = require("../userGuess");
 
 describe(Round, () => {
     describe("randomWord()", () => {

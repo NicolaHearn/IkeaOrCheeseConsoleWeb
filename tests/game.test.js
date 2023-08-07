@@ -1,5 +1,5 @@
-const Game = require('./game');
-const Round = require('./round');
+const Game = require('../game');
+const Round = require('../round');
 
 describe(Game, () => {
 describe("constructs with game data", () => {

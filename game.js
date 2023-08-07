@@ -34,4 +34,7 @@ class Game {
     }
 }
 
+const game = new Game();
+game.playGame();
+
 module.exports = Game; 

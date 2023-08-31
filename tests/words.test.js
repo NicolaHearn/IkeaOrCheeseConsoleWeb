@@ -1,4 +1,4 @@
-const Words = require("./words.js");
+const Words = require("../words.js");
 
 describe(Words, () => {
   describe("the data this class holds", () => {

@@ -1,4 +1,4 @@
-const UserGuess = require('./userGuess');
+const UserGuess = require('../userGuess');
 
 describe(UserGuess, () => {
   describe("user input", () => {

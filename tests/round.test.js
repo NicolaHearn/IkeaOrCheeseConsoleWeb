@@ -1,5 +1,5 @@
-const Round = require("./round");
-const UserGuess = require("./userGuess");
+const Round = require("../round");
+const UserGuess = require("../userGuess");
 
 describe(Round, () => {
     describe("randomWord()", () => {
@@ -13,11 +13,9 @@ describe(Round, () => {
     describe("winOrLose()", () => {
         it("returns true if the user guess matches the category (ikea or cheese) of the word they have been given", () => {
             const round = new Round();
-            const userGuess = new UserGuess("ikea")
-            const result = round.winOrLose("tvarhand", userGuess.userInput);
+            const result = round.winOrLose("tvarhand", "ikea");
 
-            const newUserGuess = new UserGuess("cheese")
-            const newResult = round.winOrLose("kaffeost", newUserGuess.userInput);
+            const newResult = round.winOrLose("kaffeost", "cheese");
 
             expect(result).toEqual(true)
             expect(newResult).toEqual(true);

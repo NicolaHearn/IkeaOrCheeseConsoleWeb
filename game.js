@@ -5,31 +5,30 @@ class Game {
     constructor() {
         this.rounds = 1;
         this.score = 0;
+        this.wordThisRound = ''
+        this.round;
     }
 
-    playRound(testArg) {
-        let result = false;
-       
-        if (typeof testArg === 'undefined') {
-            const round = new Round();    
-            round.promptUser();
-            const word = round.randomWord();
-            const userGuess = new UserGuess("cheese");
-            result = round.winOrLose(word, userGuess.userInput); 
-        }
-        else {
-            result = testArg;
-        }
+    startRound() {
+            // let result = false;
+            this.round = new Round();  
+            this.wordThisRound = this.round.randomWord();
+            this.rounds++  
+            return `${this.wordThisRound}`;
+    }
 
-        this.rounds ++
+    endRound(userInput) {
+        const result = this.round.winOrLose(this.wordThisRound, userInput);
         result ? this.score ++ : false;
-        return result
+        return this.round.roundResult(result);
     }
-        
-    playGame() {
-        while (this.rounds <= 10) {
-        this.playRound();
-        }
+    //start new game, keeps track of rounds. Pull the while loop into the thing that's using the game.
+    
+    gameInPlay() {
+        return this.rounds <= 10;
+    }
+
+    displayScore() {
         return "game over, you scored: " + this.score;
     }
 }

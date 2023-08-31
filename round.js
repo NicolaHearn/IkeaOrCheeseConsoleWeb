@@ -1,6 +1,6 @@
 const Words = require("./words");
 const Random = require('./random');
-
+//redo this where it has to give something (ikea or cheese) and get the guess
 class Round {
     constructor() {
         this.words = new Words();
@@ -11,7 +11,7 @@ class Round {
         return random.random();
     }
 
-    promptUser() {
+    askUser() {
         return "Is it ikea or cheese?";
     }
 

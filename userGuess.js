@@ -4,8 +4,8 @@ class UserGuess {
   }
   
   collectGuess() {
-    const input = prompt("Please enter a guess: ");
-    console.log("You entered: " + input);
+    const input = "Please enter a guess: ";
+    return("You entered: " + input);
     this.userInput = input;
   }
 

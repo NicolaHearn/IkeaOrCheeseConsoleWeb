@@ -17,6 +17,10 @@ class Game {
             return `${this.wordThisRound}`;
     }
 
+    checkUserInput(userInput) {
+        return userInput === 'i' || userInput === 'c' ? true : "Answer must be 'i' for ikea or 'c' for cheese, please try again";
+       }
+
     endRound(userInput) {
         const result = this.round.winOrLose(this.wordThisRound, userInput);
         result ? this.score ++ : false;

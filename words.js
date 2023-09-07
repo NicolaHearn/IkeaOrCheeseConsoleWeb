@@ -30,11 +30,6 @@ class Words {
     this.allWords = this.ikeaWords.concat(this.cheeseWords);
   
   }
-
-  // random() {
-  //   const randomWord = new Random()
-  //   return randomWord.random();
-  // }
 }
 
 module.exports = Words;

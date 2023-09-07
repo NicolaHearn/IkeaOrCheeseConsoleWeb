@@ -7,13 +7,22 @@ class Game {
         this.score = 0;
         this.wordThisRound = ''
         this.round;
+        this.previousWords = []
     }
 
     startRound() {
             // let result = false;
             this.round = new Round();  
             this.wordThisRound = this.round.randomWord();
+
+            while (this.previousWords.includes(this.wordThisRound)) {
+                this.wordThisRound = this.round.randomWord();
+                console.log("new word" + this.wordThisRound);
+            }
+
+            this.previousWords.push(this.wordThisRound);
             this.rounds++  
+            console.log(this.previousWords)
             return `${this.wordThisRound}`;
     }
 

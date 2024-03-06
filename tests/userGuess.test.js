@@ -1,4 +1,4 @@
-const UserGuess = require('../userGuess');
+const UserGuess = require("../userGuess");
 
 describe(UserGuess, () => {
   describe("user input", () => {
@@ -10,7 +10,7 @@ describe(UserGuess, () => {
       const userGuess = new UserGuess(4);
       const result = userGuess.checkUserInput();
 
-      expect(result).toEqual("Answer must be 'ikea' or 'cheese', please try again") 
+      expect(result).toEqual("Answer must be 'i' or 'c', please try again");
     });
     it("asks the user to re-enter input if they type anything except 'ikea' or 'cheese'", () => {
       const userGuess = new UserGuess("July");
@@ -19,10 +19,8 @@ describe(UserGuess, () => {
       const nextuserGuess = new UserGuess(4);
       const nextResult = userGuess.checkUserInput();
 
-      expect(result).toEqual("Answer must be 'ikea' or 'cheese', please try again");
-      expect(nextResult).toEqual("Answer must be 'ikea' or 'cheese', please try again");
-    })
+      expect(result).toEqual("Answer must be 'i' or 'c', please try again");
+      expect(nextResult).toEqual("Answer must be 'i' or 'c', please try again");
+    });
   });
-
-  
 });
